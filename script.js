@@ -6,14 +6,13 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(userInput) {
 	let results = [];
 
-	results = fruit.filter(function(value) {
-		const lowerCaseFruit = [...value].map(char => char.toLowerCase())
-		let word = lowerCaseFruit.join('');
+	if(userInput !== "") {
+		results = fruit.filter(function(value) {
 
-		if(userInput === "") return false;
-		if(word.includes(userInput.toLowerCase())) return true;
-		suggestions.style.display = "none";
-	});
+			if(value.toLowerCase().includes(userInput.toLowerCase())) return true;
+			suggestions.style.display = "none";
+		});
+	}
 
 	return results;
 }
